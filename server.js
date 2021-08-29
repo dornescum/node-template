@@ -9,10 +9,10 @@ const server = http.createServer((req,res)=>{
     let path = './views/';
     if (req.url ==='/'){
         res.statusCode = 200;
-        path += 'index.html';
+        path += 'index.ejs';
     } else if (req.url==='/dogs'){
         res.statusCode = 200;
-        path += 'dogs.html'
+        path += 'dogs.ejs'
     } else if (req.url === '/dogs-new'){
         res.statusCode = 301;
         // redirect
@@ -20,13 +20,13 @@ const server = http.createServer((req,res)=>{
         // res.end() da eroare(il inchide)
     } else {
         res.statusCode = 404;
-        path += '404.html'
+        path += '404.ejs'
     }
 
     // setHeader
     res.setHeader('Content-type', 'text/html');
     // sent an html file
-    // inlocuiesc hardcoded './views/index.html' cu path
+    // inlocuiesc hardcoded './views/index.ejs' cu path
     fs.readFile(path, (err, data)=>{
         if (err){
             console.log(err);
