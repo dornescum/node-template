@@ -6,6 +6,8 @@
 </head>
 <body>
 
+<%- include('./partials/nav.ejs') %>
+
 <p>home page</p>
 <% if (dogs.length > 0) { %>
 
@@ -17,5 +19,8 @@
 
     <p> sorry no dogs</p>
 <% } %>
+
+<%- include('./partials/footer.ejs') %>
+
 </body>
 </html>

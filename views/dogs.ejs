@@ -2,16 +2,14 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Dogs | <%= title%></title>
+    <title>Dogs | <%= title %></title>
 </head>
 <body>
-
-<nav>
-    <a href="/">Home page</a>
-    <a href="/dogs">Dogs</a>
-</nav>
+<%- include('./partials/nav.ejs') %>
 
 
-            <h1>all dogs</h1>
+<h1>all dogs</h1>
+<%- include('./partials/footer.ejs') %>
+
 </body>
 </html>
