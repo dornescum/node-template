@@ -8,11 +8,26 @@
     <h2><%= dog.name %></h2>
     <div>
         <p><%= dog.desc %></p>
-        <a href="#">delete</a>
+        <a class="delete" href="#" data-doc="<%= dog._id %>">delete</a>
     </div>
 </div>
 
 <%- include('./partials/footer.ejs') %>
+
+<script>
+	const trashcan = document.querySelector('a.delete');
+	trashcan.addEventListener('click', (e) => {
+		// legatura intre data-doc
+		const endpoint = `/dogs/${trashcan.dataset.doc}`;
+		fetch(endpoint, {
+			method: 'DELETE',
+		})
+			.then(response => response.json())
+			// unde il trimit
+			.then(data => window.location.href = data.redirect)
+			.catch(err => console.log(err));
+	});
+</script>
 
 </body>
 </html>

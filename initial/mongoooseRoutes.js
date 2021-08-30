@@ -1,5 +1,5 @@
 // mogoose routes in exercitiu
-const Dog = require("./models/dog");
+const Dog = require("../models/dog");
 app.get('/add-dog', (req, res) => {
 	const createDog = new Dog({
 		name: 'Biscuit 2',

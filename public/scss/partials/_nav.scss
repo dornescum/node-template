@@ -1,0 +1,14 @@
+@import "variables";
+nav {
+  background: $gray;
+  display: flex;
+  justify-content: space-around;
+  align-content: center;
+  padding: 1rem 0;
+  top: 0;
+  position: relative;
+  a {
+    color: #fff;
+    text-decoration: none;
+  }
+}
