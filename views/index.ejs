@@ -2,15 +2,20 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Home</title>
+    <title>Home | <%= title %></title>
 </head>
 <body>
-            <nav>
-    <a href="/">Home page</a>
-    <a href="/dogs">Dogs</a>
-</nav>
-
 
 <p>home page</p>
+<% if (dogs.length > 0) { %>
+
+    <% dogs.forEach(dog =>{ %>
+        <h4><%= dog.title %></h4>
+        <p><%= dog.desc %></p>
+    <% }) %>
+<% } else { %>
+
+    <p> sorry no dogs</p>
+<% } %>
 </body>
 </html>
