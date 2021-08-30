@@ -18,6 +18,8 @@ app.set('view engine', 'ejs');
 
 // middleware & static files
 app.use(express.static('public'));
+// f important pt req body
+app.use(express.urlencoded({extended: true}));
 // app.use(morgan('dev'));
 
 
@@ -37,10 +39,19 @@ app.get('/dogs', (req, res) => {
 		.then((data) => {
 			res.render('dogs', {title: "All Dogs", dogs: data})
 		})
-		.catch()
+		.catch(err => console.log(err))
 })
 app.get('/addDog', (req, res) => {
 	res.render('addDog', {title: 'Add Your Dog'});
+})
+app.post('/dogs', (req, res) => {
+	const dog = new Dog(req.body);
+	dog.save()
+		.then((result) => {
+			res.redirect('/dogs')
+		})
+		.catch(err => console.log(err))
+
 })
 
 
