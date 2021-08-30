@@ -8,6 +8,10 @@ app.set('view engine', 'ejs');
 // app.set('views', 'myviews')
 
 const port = 3000;
+// middleware & static files
+app.use(express.static('public'));
+// app.use(morgan('dev'));
+
 
 app.listen(port);
 //listen for request || este importanta ordinea in care sunt aranjate
@@ -26,6 +30,11 @@ app.get('/dogs', (req, res) => {
 	// res.sendFile('./views/dogs.ejs', {root: __dirname})
 	res.render('dogs', {title: 'All Dogs'});
 })
+app.get('/addDog', (req, res) => {
+	res.render('addDog', {title: 'Add Your Dog'});
+})
+
+
 // redirect
 app.get('/dogs-new', (req, res) => {
 	res.redirect('/dogs');
