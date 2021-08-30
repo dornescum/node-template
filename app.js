@@ -2,6 +2,7 @@ const express = require('express');
 const app = express();
 const mongoose = require('mongoose');
 const Dog = require('./models/dog');
+const {render} = require("ejs");
 
 const dbURL = 'mongodb+srv://ceapa20:ceapa_2000@thenetninja.ftnae.mongodb.net/dogsLists?retryWrites=true&w=majority';
 
@@ -51,14 +52,22 @@ app.post('/dogs', (req, res) => {
 			res.redirect('/dogs')
 		})
 		.catch(err => console.log(err))
+})
+app.get('/dogs/:id', (req, res) => {
+	const ID = req.params.id;
+	console.log(ID)
+	Dog.findById(ID)
+		.then((result) => {
+			res.render('singleDog', {dog: result, title: 'Individual Dog'})
+		})
+		.catch(err => console.log(err))
 
 })
-
 
 // redirect
-app.get('/dogs-new', (req, res) => {
-	res.redirect('/dogs');
-})
+// app.get('/dogs-new', (req, res) => {
+// 	res.redirect('/dogs');
+// })
 // 404 && si trebuie pus ultimul dupa ce trece prin toate
 app.use((req, res) => {
 	// res.sendFile('./views/404.ejs', {root: __dirname})

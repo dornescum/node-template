@@ -1,0 +1,18 @@
+<!doctype html>
+<html lang="en">
+<%- include('./partials/head.ejs') %>
+
+<body>
+<%- include('./partials/nav.ejs') %>
+<div class="container">
+    <h2><%= dog.name %></h2>
+    <div>
+        <p><%= dog.desc %></p>
+        <a href="#">delete</a>
+    </div>
+</div>
+
+<%- include('./partials/footer.ejs') %>
+
+</body>
+</html>

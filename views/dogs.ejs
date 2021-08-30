@@ -10,9 +10,11 @@
 <% if (dogs.length > 0) { %>
 
     <% dogs.forEach(dog =>{ %>
-        <h4><%= dog.title %></h4>
-        <h1><%= dog.name %></h1>
-        <p><%= dog.desc %></p>
+        <a href="/dogs/<%= dog._id %>">
+            <h4><%= dog.title %></h4>
+            <h1><%= dog.name %></h1>
+            <p><%= dog.desc %></p>
+        </a>
     <% }) %>
 <% } else { %>
 
