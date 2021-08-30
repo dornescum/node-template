@@ -7,20 +7,27 @@
 <body>
 <%- include('./partials/nav.ejs') %>
 
-<% if (dogs.length > 0) { %>
 
-    <% dogs.forEach(dog =>{ %>
-        <a href="/dogs/<%= dog._id %>">
-            <h4><%= dog.title %></h4>
-            <h1><%= dog.name %></h1>
-            <p><%= dog.desc %></p>
-            <img src="./images/1.jpg" alt="" width="250" height="200">
-        </a>
-    <% }) %>
-<% } else { %>
+<div class="container">
 
-    <p> sorry no dogs</p>
-<% } %>
+    <% if (dogs.length > 0) { %>
+
+    <div class="row">
+        <% dogs.forEach(dog =>{ %>
+
+            <div class="card">
+                <h4><%= dog.name %></h4>
+                <h4><%= dog.desc %></h4>
+                <h4><%= dog.email %></h4>
+                <img src="./images/1.jpg" alt="">
+            </div>
+
+        <% }) %>
+        <% } else { %>
+            <p> sorry no dogs</p>
+        <% } %>
+    </div>
+</div>
 <%- include('./partials/footer.ejs') %>
 
 </body>
