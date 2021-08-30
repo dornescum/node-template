@@ -1,19 +1,26 @@
 const express = require('express');
 const app = express();
+const mongoose = require('mongoose');
+const Dog = require('./models/dog');
+
+const dbURL = 'mongodb+srv://ceapa20:ceapa_2000@thenetninja.ftnae.mongodb.net/dogsLists?retryWrites=true&w=majority';
+
+mongoose.connect(dbURL)
+	.then(result => app.listen(3000))
+	// .then((result) => console.log('connected to db'))
+	.catch(err => console.log(err));
+
 
 // register view engine
 // ii spun node js ce anume folosesc=> ejs !!
 app.set('view engine', 'ejs');
-// DC folosesc alt aranjament al folderuleui : unde si ce!
-// app.set('views', 'myviews')
 
-const port = 3000;
+
 // middleware & static files
 app.use(express.static('public'));
 // app.use(morgan('dev'));
 
 
-app.listen(port);
 //listen for request || este importanta ordinea in care sunt aranjate
 app.get('/', (req, res) => {
 	// este important obiectul (spune de unde porneste)
@@ -26,9 +33,11 @@ app.get('/', (req, res) => {
 	res.render('index', {title: 'Home', dogs: dogsList})
 })
 app.get('/dogs', (req, res) => {
-	// pt html sentFile
-	// res.sendFile('./views/dogs.ejs', {root: __dirname})
-	res.render('dogs', {title: 'All Dogs'});
+	Dog.find().sort({createdAt: -1})
+		.then((data) => {
+			res.render('dogs', {title: "All Dogs", dogs: data})
+		})
+		.catch()
 })
 app.get('/addDog', (req, res) => {
 	res.render('addDog', {title: 'Add Your Dog'});
@@ -44,3 +53,7 @@ app.use((req, res) => {
 	// res.sendFile('./views/404.ejs', {root: __dirname})
 	res.status(404).render('404', {title: 'Error'});
 })
+
+
+// DC folosesc alt aranjament al folderuleui : unde si ce!
+// app.set('views', 'myviews')

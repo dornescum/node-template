@@ -7,8 +7,17 @@
 <body>
 <%- include('./partials/nav.ejs') %>
 
+<% if (dogs.length > 0) { %>
 
-<h1>all dogs</h1>
+    <% dogs.forEach(dog =>{ %>
+        <h4><%= dog.title %></h4>
+        <h1><%= dog.name %></h1>
+        <p><%= dog.desc %></p>
+    <% }) %>
+<% } else { %>
+
+    <p> sorry no dogs</p>
+<% } %>
 <%- include('./partials/footer.ejs') %>
 
 </body>
