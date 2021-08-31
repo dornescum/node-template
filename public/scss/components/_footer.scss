@@ -3,8 +3,8 @@
 
 .footer {
   bottom: 0;
-  position: absolute;
+  position: relative;
   @media (max-width: $sm) {
-   position: relative;
+    position: relative;
   }
 }

@@ -12,17 +12,24 @@
 
     <% if (dogs.length > 0) { %>
 
-    <div class="row ">
+    <div class="row display">
         <% dogs.forEach(dog =>{ %>
             <a href="/dogs/<%= dog._id %> ">
                 <div class="card">
-                    <h4><%= dog.name %></h4>
-                    <p><%= dog.age %></p>
-                    <p><%= dog.sex %></p>
-                    <p><%= dog.pedigree %></p>
-                    <div><%= dog.desc.slice(0, 40) %> <a href="/dogs/<%= dog._id %> ">...</a></div>
-                    <p><%= dog.email %></p>
-                    <img src="./images/1.jpg" alt="">
+                    <h4 class="card-title"><%= dog.name %></h4>
+                    <div class="card-info">
+                        <p> Age : <%= dog.age %></p>
+
+                        <p> <%= dog.name %> is a : <%= dog.sex %></p>
+                    </div>
+                    
+                    <div class="card-info">
+                        <p class="pedigree"> with pedigree : <%= dog.pedigree %></p>
+                        <img src="./images/heart.svg"/>
+                    </div>
+                    <div class="card-body"> Description : <%= dog.desc.slice(0, 40) %> <a href="/dogs/<%= dog._id %> ">...</a>
+                    </div>
+                    <img src="./images/1.jpg" alt="" class="card-img">
                 </div>
             </a>
         <% }) %>
@@ -32,5 +39,19 @@
     </div>
 </div>
 <%- include('./partials/footer.ejs') %>
+
+<script>
+	const emailBtn = document.querySelectorAll('.btn-show');
+	const row = document.querySelectorAll('.row');
+
+	const para = document.createElement('p');
+	console.log(para)
+	// emailBtn.forEach((btn) => {
+	// 	btn.addEventListener('click', (e) => {
+	// 		para.append(row)
+	// 		para.innerHTML = ` <p>dog.email</p> `
+	// 	})
+	// })
+</script>
 </body>
 </html>

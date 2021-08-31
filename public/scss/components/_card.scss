@@ -1,5 +1,6 @@
 @use 'sass:math';
 @import '../partials/variables';
+@import '../partials/utils';
 
 
 .card {
@@ -9,21 +10,22 @@
   border: $base-border-thickness solid #ddd;
   box-shadow: $base-box-shadow;
   border-radius: math.div($base-border-radius, 4);
-  width: 19.75rem;
+  //width: 19.75rem;
   width: 24.75rem;
   max-width: 25rem;
   @media (max-width: $desktop) {
     width: 18.15rem;
+    width: 22.15rem;
   }
   @media (max-width: $tablet-bg) {
-    width: 17.15rem;
+    //width: 17.15rem;
     width: 23.15rem;
   }
   @media (max-width: $tablet) {
-    width: 12.45rem;
-    width: 18.45rem;
+    //width: 12.45rem;
+    width: 17.45rem;
   }
-@media (max-width: $sm) {
+  @media (max-width: $sm) {
     width: 20.45rem;
   }
 
@@ -31,13 +33,67 @@
     font-size: $base-font-size;
     padding-bottom: $base-padding;
     font-weight: bold;
+    @include flex-ct;
+  }
+
+  .card-info {
+    @include flex-sb;
+    padding: .5rem $base-padding;
+  }
+
+  .pedigree {
+    text-transform: capitalize;
   }
 
   .card-body {
     font-size: $base-font-size;
+    padding: $base-padding;
 
     a {
       text-decoration: underline;
     }
   }
+
+  .btn-show {
+    display: block;
+    width: 100%;
+    margin: $base-margin 0;
+    padding: $base-padding/2;
+    box-shadow: $base-box-shadow;
+    text-transform: capitalize;
+  }
+
+  .card-img {
+    height: 20rem;
+    width: 100%;
+    padding: $base-padding 0;
+    cursor: not-allowed;
+    @media (max-width: $desktop) {
+      height: 16rem;
+    }
+    @media (max-width: $tablet-bg) {
+      height: 18rem;
+    }
+    @media (max-width: $tablet) {
+      height: 15rem;
+    }
+    @media (max-width: $xs) {
+      height: 14rem;
+    }
+
+  }
+
+  //.email {
+  //  background-color: black;
+  //  color: black;
+  //}
+  //
+  //.show-email {
+  //  display: block;
+  //  width: 100%;
+  //  margin: $base-margin 0;
+  //  padding: $base-padding/2;
+  //  box-shadow: $base-box-shadow;
+  //  text-transform: capitalize;
+  //}
 }
