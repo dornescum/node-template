@@ -10,11 +10,23 @@
   box-shadow: $base-box-shadow;
   border-radius: math.div($base-border-radius, 4);
   width: 19.75rem;
+  width: 24.75rem;
   max-width: 25rem;
-  @media (max-width: $tablet) {
-    width: 19.75rem;
-    max-width: 25rem;
+  @media (max-width: $desktop) {
+    width: 18.15rem;
   }
+  @media (max-width: $tablet-bg) {
+    width: 17.15rem;
+    width: 23.15rem;
+  }
+  @media (max-width: $tablet) {
+    width: 12.45rem;
+    width: 18.45rem;
+  }
+@media (max-width: $sm) {
+    width: 20.45rem;
+  }
+
   .card-title {
     font-size: $base-font-size;
     padding-bottom: $base-padding;

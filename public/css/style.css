@@ -4,6 +4,12 @@
   margin: 0;
 }
 
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 ul {
   padding: 0;
   list-style-type: none;
@@ -74,51 +80,40 @@ textarea {
 }
 
 /*conatiner and media*/
-.container,
-.container-fluid,
-.container-sm,
-.container-md,
-.container-lg,
-.container-xl {
+.container {
   width: 100%;
-  padding-right: 15px;
-  padding-left: 15px;
   margin-right: auto;
   margin-left: auto;
 }
-
-@media (min-width: 576px) {
-  .container, .container-sm {
-    max-width: 540px;
-    width: 350px;
-    padding-right: 0;
-    padding-left: 0;
-    margin-right: 0;
-    margin-left: 0;
-  }
-}
-@media (min-width: 768px) {
-  .container, .container-sm, .container-md {
-    max-width: 720px;
-  }
-}
-@media (min-width: 992px) {
-  .container, .container-sm, .container-md, .container-lg {
-    max-width: 960px;
-  }
-}
-@media (min-width: 1200px) {
-  .container, .container-sm, .container-md, .container-lg, .container-xl {
+@media (max-width: 1366px) {
+  .container {
     max-width: 1440px;
   }
 }
-.row {
+@media (max-width: 1024px) {
+  .container {
+    max-width: 960px;
+  }
+}
+@media (max-width: 768px) {
+  .container {
+    max-width: 720px;
+  }
+}
+@media (max-width: 600px) {
+  .container {
+    max-width: 540px;
+  }
+}
+.container .row {
   display: -ms-flexbox;
   display: flex;
   -ms-flex-wrap: wrap;
   flex-wrap: wrap;
-  margin-right: -15px;
-  margin-left: -15px;
+  justify-content: center;
+  align-content: center;
+  margin-right: auto;
+  margin-left: auto;
 }
 
 .card {
@@ -129,12 +124,29 @@ textarea {
   box-shadow: 1px 3px 5px rgba(0, 0, 0, 0.1);
   border-radius: 5px;
   width: 19.75rem;
+  width: 24.75rem;
   max-width: 25rem;
+}
+@media (max-width: 1366px) {
+  .card {
+    width: 18.15rem;
+  }
+}
+@media (max-width: 1024px) {
+  .card {
+    width: 17.15rem;
+    width: 23.15rem;
+  }
 }
 @media (max-width: 768px) {
   .card {
-    width: 19.75rem;
-    max-width: 25rem;
+    width: 12.45rem;
+    width: 18.45rem;
+  }
+}
+@media (max-width: 600px) {
+  .card {
+    width: 20.45rem;
   }
 }
 .card .card-title {
@@ -147,6 +159,16 @@ textarea {
 }
 .card .card-body a {
   text-decoration: underline;
+}
+
+.footer {
+  bottom: 0;
+  position: absolute;
+}
+@media (max-width: 600px) {
+  .footer {
+    position: relative;
+  }
 }
 
 /*# sourceMappingURL=style.css.map */

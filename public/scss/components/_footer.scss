@@ -1,0 +1,10 @@
+@import '../partials/variables';
+
+
+.footer {
+  bottom: 0;
+  position: absolute;
+  @media (max-width: $sm) {
+   position: relative;
+  }
+}
