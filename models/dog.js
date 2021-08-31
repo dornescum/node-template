@@ -10,13 +10,27 @@ const dogSchema = new Schema({
 
 			desc: {
 				type: String,
-				required: true
+				required: false
 			},
 
 			email: {
 				type: String,
-				required: false
+				required: true
 			},
+			age: {
+				type: Number,
+				required: true
+			},
+			sex: {
+				type: String,
+				required: true
+			},
+			pedigree: {
+				type: String,
+				required: true
+			},
+
+
 		}, {timestamps: true}
 	)
 ;

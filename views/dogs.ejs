@@ -14,14 +14,17 @@
 
     <div class="row ">
         <% dogs.forEach(dog =>{ %>
-
-            <div class="card">
-                <h4><%= dog.name %></h4>
-                <h4><%= dog.desc %></h4>
-                <h4><%= dog.email %></h4>
-                <img src="./images/1.jpg" alt="">
-            </div>
-
+            <a href="/dogs/<%= dog._id %> ">
+                <div class="card">
+                    <h4><%= dog.name %></h4>
+                    <p><%= dog.age %></p>
+                    <p><%= dog.sex %></p>
+                    <p><%= dog.pedigree %></p>
+                    <div><%= dog.desc.slice(0, 40) %> <a href="/dogs/<%= dog._id %> ">...</a></div>
+                    <p><%= dog.email %></p>
+                    <img src="./images/1.jpg" alt="">
+                </div>
+            </a>
         <% }) %>
         <% } else { %>
             <p> sorry no dogs</p>
@@ -29,6 +32,5 @@
     </div>
 </div>
 <%- include('./partials/footer.ejs') %>
-
 </body>
 </html>
