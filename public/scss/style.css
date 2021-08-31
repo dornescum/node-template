@@ -140,6 +140,10 @@ textarea {
   }
 }
 
+.pt-2 {
+  padding-top: 2rem;
+}
+
 /*conatiner and media*/
 .container {
   width: 100%;
@@ -199,6 +203,10 @@ textarea {
   .display {
     padding-left: 0;
   }
+}
+
+.pt-2 {
+  padding-top: 2rem;
 }
 
 .card {

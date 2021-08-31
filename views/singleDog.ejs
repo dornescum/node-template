@@ -1,6 +1,13 @@
 <!doctype html>
 <html lang="en">
-<%- include('./partials/head.ejs') %>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="./public/css/style.css">
+    <title>DOGS | <%= title %></title>
+</head>
 <!--todo problema css-->
 <style>
     body {
@@ -23,6 +30,69 @@
         color: #fff;
         text-decoration: none;
     }
+
+    .container {
+        width: 95%;
+        padding-right: 15px;
+        padding-left: 15px;
+        padding-bottom: 2rem;
+        /*margin-right: 15px;*/
+        /*margin-left: 15px;*/
+        margin: 2rem 1rem;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+    }
+
+    .footer {
+        position: absolute;
+        bottom: 0;
+        left: 2rem;
+    }
+
+    .btn-show {
+        width: 100%;
+        text-transform: capitalize;
+    }
+
+    .no-show {
+        display: none;
+    }
+
+    .show {
+        display: block;
+    }
+
+    .btn {
+        background: #ccc;
+        color: #ffffff;
+        padding: .5rem 1rem;
+        border-radius: 5px;
+        border: transparent;
+        box-shadow: 1px 3px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    .btn:hover {
+        background: #c9c9c9;
+        box-shadow: 2px 5px 9px rgba(0, 0, 0, 0.1);
+    }
+
+    @media screen and (max-width: 1366px) {
+        .container {
+            width: 93%;
+        }
+    }
+
+    @media screen and (max-width: 768px) {
+        .container {
+            width: 90%;
+        }
+    }
+
+    @media screen and (max-width: 7568px) {
+        .container {
+            width: 82%;
+        }
+    }
 </style>
 
 <body>
@@ -33,26 +103,38 @@
 <div class="container">
     <h2><%= dog.name %></h2>
     <div>
-        <p><%= dog.desc %></p>
-        <a class="delete" href="#" data-doc="<%= dog._id %>">delete</a>
+        <p><%= dog.name %> is : <%= dog.age %> old</p>
+        <p><%= dog.name %> has pedigree : <%= dog.pedigree %></p>
+        <p><%= dog.name %> is a : <%= dog.sex %></p>
+        <p><%= dog.name %> is a : <%= dog.desc %></p>
+        <img src="../public/images/1.jpg" alt="" class="card-img">
+        <button class="btn">show email if you want to conect</button>
+        <p class="btn-show no-show"> <%= dog.email %></p>
+
     </div>
 </div>
 
 <%- include('./partials/footer.ejs') %>
 
 <script>
-	const trashcan = document.querySelector('a.delete');
-	trashcan.addEventListener('click', (e) => {
-		// legatura intre data-doc
-		const endpoint = `/dogs/${trashcan.dataset.doc}`;
-		fetch(endpoint, {
-			method: 'DELETE',
-		})
-			.then(response => response.json())
-			// unde il trimit
-			.then(data => window.location.href = data.redirect)
-			.catch(err => console.log(err));
-	});
+	const btn = document.querySelector('.btn');
+	const btnShow = document.querySelector('.btn-show');
+	console.log(btnShow)
+	btn.addEventListener('click', () => {
+		btnShow.classList.toggle('no-show');
+	})
+	// const trashcan = document.querySelector('a.delete');
+	// trashcan.addEventListener('click', (e) => {
+	// 	// legatura intre data-doc
+	// 	const endpoint = `/dogs/${trashcan.dataset.doc}`;
+	// 	fetch(endpoint, {
+	// 		method: 'DELETE',
+	// 	})
+	// 		.then(response => response.json())
+	// 		// unde il trimit
+	// 		.then(data => window.location.href = data.redirect)
+	// 		.catch(err => console.log(err));
+	// });
 </script>
 
 </body>

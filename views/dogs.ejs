@@ -12,7 +12,7 @@
 
     <% if (dogs.length > 0) { %>
 
-    <div class="row display">
+    <div class="row display pt-2">
         <% dogs.forEach(dog =>{ %>
             <a href="/dogs/<%= dog._id %> ">
                 <div class="card">
@@ -22,7 +22,7 @@
 
                         <p> <%= dog.name %> is a : <%= dog.sex %></p>
                     </div>
-                    
+
                     <div class="card-info">
                         <p class="pedigree"> with pedigree : <%= dog.pedigree %></p>
                         <img src="./images/heart.svg"/>
