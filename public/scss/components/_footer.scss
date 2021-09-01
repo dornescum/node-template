@@ -2,9 +2,18 @@
 
 
 .footer {
+  //bottom: 0;
+  //position: absolute;
+  width: 100%;
+  position: fixed;
+  left: 0;
   bottom: 0;
-  position: absolute;
   @media (max-width: $sm) {
-    position: relative;
+    position: fixed;
+  }
+
+  p {
+    background: #9900ff;
+    bottom: 0;
   }
 }

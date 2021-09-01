@@ -5,6 +5,8 @@
   //border: 1px solid #ccc;
   padding: $base-padding;
   margin: $base-margin;
+  position: absolute;
+  bottom: 0;
   //width: 100%;
   .form-group {
     padding: $base-padding/2 $base-padding;
@@ -14,11 +16,13 @@
     @include flex-sa;
     border: 1px solid #ccc;
     border-radius: $radius;
+    background: $gray;
 
 
     label {
       padding: $base-padding;
       margin: $base-margin;
+      color: #fff;
     }
 
     select {
@@ -26,23 +30,45 @@
       margin: $base-margin;
       border: none;
       outline: none;
+      background: $gray;
+      color: #fff;
+
     }
   }
 }
 
-.col-left {
-  max-width: 30rem;
-  width: 25rem;
-  padding: $base-padding;
-  margin: $base-margin;
-  @include flex-ct;
-  padding-top: 7rem;
-  padding-bottom: 7rem;
+.main-img {
+  object-fit: cover;
+  //background-image: url("../../../public/images/1.jpg");
+  background-image: url("https://images.unsplash.com/photo-1519150268069-c094cfc0b3c8?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1078&q=80");
+  background-attachment: fixed;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: inline-block;
+  margin: 0 auto;
+  height: 100vh;
+  width: 100%;
+  min-height: 500px;
+  position: absolute;
+  @media (max-width: $desktop) {
+    background-attachment: scroll;
+  }
 }
 
-.col-right {
-  width: 30rem;
-  max-width: 35rem;
-  padding: $base-padding;
-  margin: $base-margin;
-}
+//.col-left {
+//  max-width: 30rem;
+//  width: 25rem;
+//  padding: $base-padding;
+//  margin: $base-margin;
+//  @include flex-ct;
+//  padding-top: 7rem;
+//  padding-bottom: 7rem;
+//}
+//
+//.col-right {
+//  width: 30rem;
+//  max-width: 35rem;
+//  padding: $base-padding;
+//  margin: $base-margin;
+//}
