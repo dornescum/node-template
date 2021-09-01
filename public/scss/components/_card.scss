@@ -33,6 +33,7 @@
     font-size: $base-font-size;
     padding-bottom: $base-padding;
     font-weight: bold;
+    text-transform: capitalize;
     @include flex-ct;
   }
 
@@ -51,6 +52,7 @@
 
     a {
       text-decoration: underline;
+
     }
   }
 

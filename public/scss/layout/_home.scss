@@ -1,0 +1,48 @@
+.form-dogs {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  //border: 1px solid #ccc;
+  padding: $base-padding;
+  margin: $base-margin;
+  //width: 100%;
+  .form-group {
+    padding: $base-padding/2 $base-padding;
+    margin: $base-margin/2 $base-margin;
+    width: 300px;
+    max-width: 320px;
+    @include flex-sa;
+    border: 1px solid #ccc;
+    border-radius: $radius;
+
+
+    label {
+      padding: $base-padding;
+      margin: $base-margin;
+    }
+
+    select {
+      padding: $base-padding;
+      margin: $base-margin;
+      border: none;
+      outline: none;
+    }
+  }
+}
+
+.col-left {
+  max-width: 30rem;
+  width: 25rem;
+  padding: $base-padding;
+  margin: $base-margin;
+  @include flex-ct;
+  padding-top: 7rem;
+  padding-bottom: 7rem;
+}
+
+.col-right {
+  width: 30rem;
+  max-width: 35rem;
+  padding: $base-padding;
+  margin: $base-margin;
+}

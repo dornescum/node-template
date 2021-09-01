@@ -3,26 +3,70 @@
 <%- include('./partials/head.ejs') %>
 
 <body>
-<%- include('./partials/head.ejs') %>
 
 <%- include('./partials/nav.ejs') %>
 
 <p class="test">home page</p>
+<div class="container">
+    <div class="row-center">
 
-<% if (dogs.length > 0) { %>
+        <form action="/dogs" method="GET" class="form-dogs">
+            <div class="form-group">
+                <label for="dogSex">Sex </label>
+                <select id="dogDex" name="dogSex" required>
+                    <option>boy</option>
+                    <option>girl</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="dogSex">Breed </label>
+                <select id="dogBreed" name="dogBreed" required>
+                    <option>chiuaua</option>
+                    <option>labrador</option>
+                </select>
+            </div>
 
-    <% dogs.forEach(dog =>{ %>
-        <h4><%= dog.title %></h4>
-        <p><%= dog.desc %></p>
-    <% }) %>
-<% } else { %>
+            <div class="form-group">
+                <label for="dogSex">Pedigree </label>
+                <select id="dogPedigree" name="dogPedigree" required>
+                    <option>Yes</option>
+                    <option>No</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <button class="btn">Go</button>
+            </div>
+        </form>
 
-    <p> sorry no dogs</p>
-<% } %>
+    </div>
 
-<a href="/dogs">more dogs</a>
+
+</div>
+<div class="container">
+    <div class="row-class">
+        <div class="col-left">
+            <a href="/dogs" class="link">See all dogs</a>
+        </div>
+        <div class="col-right">
+            <img src="./images/1.jpg" alt="">
+        </div>
+    </div>
+</div>
 
 <%- include('./partials/footer.ejs') %>
+<script>
+	const form = document.querySelector('form');
+	// const sex = document.getElementById('dogSex');
+	// console.log(sex);
+	form.addEventListener('submit', (e) => {
+		e.preventDefault();
 
+		// console.log(e.currentTarget.value)
+		// const sexInput = e.target.value;
+		// console.log(sexInput)
+		// const inputValue = e.currentTarget.value;
+		// console.log(inputValue);
+	})
+</script>
 </body>
 </html>

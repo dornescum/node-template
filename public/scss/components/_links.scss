@@ -1,0 +1,13 @@
+.link {
+  //display: block;
+  //width: 100%;
+  margin: $base-margin 0;
+  padding: $base-padding/2;
+  //box-shadow: $base-box-shadow;
+  text-transform: capitalize;
+  border: transparent;
+  cursor: pointer;
+  @include flex-ct;
+  background: #ccc;
+  color: #ffffff;
+}

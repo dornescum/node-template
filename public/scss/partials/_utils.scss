@@ -34,6 +34,32 @@
   }
 }
 
+.row-center {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-content: center;
+  margin-right: auto;
+  margin-left: auto;
+  //@media (max-width: $tablet-bg) {
+  //  justify-content: flex-start;
+  //}
+}
+
+.row-class {
+  display: -ms-flexbox;
+  display: flex;
+  //-ms-flex-wrap: wrap;
+  //flex-wrap: wrap;
+  justify-content: center;
+  align-content: center;
+  margin-right: 15px;
+  margin-left: 15px;
+
+}
+
 @mixin flex-ct {
   display: flex;
   justify-content: center;
@@ -77,7 +103,8 @@
     padding-left: 0;
   }
 }
-.pt-2{
+
+.pt-2 {
   padding-top: 2rem;
 }
 
